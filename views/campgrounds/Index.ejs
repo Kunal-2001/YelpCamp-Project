@@ -2,31 +2,43 @@
 <%- include("../partials/header") %>
 
 
-
-
-<div class="container">
-
 <header class="jumbotron">
 	<div class="container">
 			
 <h1>
-	THIS IS A CAMPGROUNDS PAGE
+	WELCOME TO YELPCAMP!!!
 </h1>
 	<p>
-		These are some of our Camping spots
+		These are some of the handpicked campgrounds from all over the world
 	</p>
 	
 	<p >
 		
-<a class="btn btn-primary btn-lg" href="/campgrounds/new">
+<a class="btn btn-primary btn-md" href="/campgrounds/new">
 	ADD NEW CAMPGROUNDS
 </a>
 	</p>
+		<p>
+		<form action="/campgrounds" method="GET" class="form-inline" >
+		    <div class="form-group">
+				<input type="text" name="search" placeholder="Search Campgrounds" class="form-control">
+				<input type="submit" value="Search" class="btn btn-default">
+			</div>		
+		</form>
+		</p>
 	</div>
-	</header>
+</header>
 
 <div class="row text-center" style="display:flex; flex-wrap:wrap">
-
+<div class="col-md-12">
+	<% if(noMatch !== null) { %>
+	
+	<h3>
+		<%=noMatch %>
+	</h3>
+	
+	<% } %>
+</div>	
 <% campgrounds.forEach(function(campgrounds){ %>
 	
 	<div class="col-md-3 col-sm-6">
@@ -35,6 +47,9 @@
 		     <img src="<%= campgrounds.image %>">
 			<div class="caption">
 				<h3><%=campgrounds.name	%></h3>
+				<div>
+                   <span class="badge label-primary"><i class="fas fa-thumbs-up"></i> <%= campgrounds.likes.length %></span>
+				</div>
 			</div>
 			<p>
 				<a href="/campgrounds/<%= campgrounds._id %>" class="btn btn-primary">More Info</a>
@@ -45,6 +60,6 @@
 	 
  <% }) %>
 
-</div>
+
 	
 <%- include("../partials/footer") %>

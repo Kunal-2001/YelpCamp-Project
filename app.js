@@ -16,8 +16,8 @@ var commentRoutes = require("./routes/comments")
 var campgroundRoutes = require("./routes/campgrounds")
 var authRoutes = require("./routes/auth")
 
-
-mongoose.connect(process.env.DATABASEURL , {useNewUrlParser : true , useUnifiedTopology : true});
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp"
+mongoose.connect(url , {useNewUrlParser : true , useUnifiedTopology : true});
 
 // mongoose.connect('mongodb+srv://kunalsinghal:9hqN51vsTORN9WH8@cluster0-jlomh.mongodb.net/test?retryWrites=true&w=majority' , {
 // 	useNewUrlParser: true,
@@ -31,7 +31,6 @@ mongoose.connect(process.env.DATABASEURL , {useNewUrlParser : true , useUnifiedT
 // });
 
 
-  //seedDb()
 
 //SCHEMA SETUP
 
@@ -48,12 +47,14 @@ app.use(methodOverride("_method"))
 app.use(flash());
 
 
+
 app.use(require("express-session")({
 	secret : "Rusty is a dog",
 	resave : false , 
 	saveUninitialized: false
 }))
 
+app.locals.moment = require('moment');
 
 app.use(passport.initialize())
 app.use(passport.session());
