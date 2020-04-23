@@ -1,0 +1,27 @@
+
+<%- include("./partials/header") %>
+<div class="row">
+    <div style="width: 30%; margin: 25px auto;">
+      <form class="form-group" action="/contact" method="POST">
+        <div>
+            <label>Name
+                <input name="name" type="text" class="form-control" required>
+            </label>
+        </div>
+        <div>
+            <label>Email
+                <input name="email" type="email" class="form-control" required>
+            </label>    
+        </div>
+        <div>
+            <label>Message
+                <textarea name="message" cols="30" rows="10" class="form-control" required></textarea>
+            </label>    
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary">
+        </div>
+    </form>
+    </div>
+</div>
+<%- include("./partials/footer") %>
