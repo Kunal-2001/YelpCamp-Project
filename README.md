@@ -13,4 +13,6 @@
 <li>A user can add Name , Description , $/night , Image Url while creating a new campground
 </li>
 <li>A contact form created using SendGrid API </li>
+  <li>Admin User Role Authorization Added</li>
 </ul>
+
