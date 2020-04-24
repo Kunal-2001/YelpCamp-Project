@@ -20,17 +20,6 @@ const expressSanitizer = require('express-sanitizer');
 // var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp"
 mongoose.connect('mongodb://localhost:27017/yelp_camp', { useNewUrlParser: true, useUnifiedTopology: true });
 
-// mongoose.connect('mongodb+srv://kunalsinghal:9hqN51vsTORN9WH8@cluster0-jlomh.mongodb.net/test?retryWrites=true&w=majority' , {
-// 	useNewUrlParser: true,
-// 	useCreateIndex : true,
-// 	useUnifiedTopology: true
-
-// }) //.then(() => {
-// 	console.log('connected to db');
-// }).catch(err => {
-// 	console.log('error detected', err.message);
-// });
-
 //SCHEMA SETUP
 
 // seedDb();
