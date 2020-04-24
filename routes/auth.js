@@ -57,6 +57,10 @@ router.post('/register', function(req, res) {
 		avatar: req.body.avatar,
 		email: req.body.email
 	});
+
+	if (req.body.adminCode === 'configure109') {
+		newUser.isAdmin = true;
+	}
 	User.register(newUser, req.body.password, function(err, user) {
 		if (err) {
 			return res.render('register', { error: err.message });
