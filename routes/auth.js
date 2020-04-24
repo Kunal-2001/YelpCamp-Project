@@ -58,7 +58,7 @@ router.post('/register', function(req, res) {
 		email: req.body.email
 	});
 
-	if (req.body.adminCode === 'configure109') {
+	if (req.body.adminCode === process.env.IS_ADMIN) {
 		newUser.isAdmin = true;
 	}
 	User.register(newUser, req.body.password, function(err, user) {
